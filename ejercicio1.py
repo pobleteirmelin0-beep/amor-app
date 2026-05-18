@@ -27,7 +27,7 @@ st.markdown("""
     overflow: hidden;
 }
 
-/* Movimiento galaxia */
+/* movimiento galaxia */
 
 @keyframes galaxyBG {
 
@@ -48,7 +48,7 @@ st.markdown("""
 ✨ TEXTOS
 ========================================================= */
 
-h1, h2, h3, p, label, div {
+h1, h2, h3, p, label {
     color: #ffd6f0 !important;
     font-weight: bold;
     text-shadow: 0 0 10px rgba(255,255,255,0.25);
@@ -121,8 +121,6 @@ h1, h2, h3, p, label, div {
     opacity: 0.8;
 }
 
-/* posiciones */
-
 .float-item:nth-child(1){
     left: 10%;
     font-size: 22px;
@@ -180,8 +178,6 @@ h1, h2, h3, p, label, div {
 
 </style>
 
-<!-- 🌌 ELEMENTOS FLOTANTES -->
-
 <div class="floating">
 
     <div class="float-item">💖</div>
@@ -200,6 +196,9 @@ h1, h2, h3, p, label, div {
 
 """, unsafe_allow_html=True)
 
+# =========================================================
+# 💖 TÍTULO
+# =========================================================
 st.title("💖 Hola mi querido 💖")
 
 # =========================================================
@@ -247,6 +246,91 @@ if opcion == "Cuánto te amo":
     col1, col2 = st.columns(2)
 
     if col1.button("💖 Iniciar"):
+
+        st.markdown("""
+
+        <style>
+
+        .loveRain {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            pointer-events: none;
+            z-index: 9999;
+        }
+
+        .drop {
+            position: absolute;
+            top: -50px;
+            animation: fall linear forwards;
+        }
+
+        .drop:nth-child(1){
+            left:10%;
+            font-size:30px;
+            animation-duration:3s;
+        }
+
+        .drop:nth-child(2){
+            left:20%;
+            font-size:25px;
+            animation-duration:4s;
+        }
+
+        .drop:nth-child(3){
+            left:35%;
+            font-size:35px;
+            animation-duration:3.5s;
+        }
+
+        .drop:nth-child(4){
+            left:50%;
+            font-size:28px;
+            animation-duration:4s;
+        }
+
+        .drop:nth-child(5){
+            left:65%;
+            font-size:34px;
+            animation-duration:3s;
+        }
+
+        .drop:nth-child(6){
+            left:80%;
+            font-size:26px;
+            animation-duration:4.5s;
+        }
+
+        @keyframes fall {
+
+            0% {
+                transform: translateY(-100px) rotate(0deg);
+                opacity: 1;
+            }
+
+            100% {
+                transform: translateY(120vh) rotate(360deg);
+                opacity: 0;
+            }
+        }
+
+        </style>
+
+        <div class="loveRain">
+
+            <div class="drop">💖</div>
+            <div class="drop">🐢</div>
+            <div class="drop">💖</div>
+            <div class="drop">🐢</div>
+            <div class="drop">💖</div>
+            <div class="drop">🐢</div>
+
+        </div>
+
+        """, unsafe_allow_html=True)
+
         st.session_state.run = True
         st.session_state.final = False
 
