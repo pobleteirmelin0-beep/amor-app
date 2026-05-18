@@ -1,166 +1,74 @@
+
 import streamlit as st
 import time
+import random
 
 st.set_page_config(page_title="💖 Para mi amor 💖", page_icon="💖")
 
 # =========================================================
-# 🌌 ESTILO GALAXIA ROSADA
+# 🌌 ESTILO GALAXIA
 # =========================================================
 st.markdown("""
 <style>
 
-/* =========================================================
-🌌 FONDO GALAXIA
-========================================================= */
-
 .stApp {
-    background: linear-gradient(
-        -45deg,
-        #120018,
-        #2b1055,
-        #4b1d6b,
-        #ff4da6
-    );
-
+    background: linear-gradient(-45deg, #1a0029, #3b0a57, #6a0572, #ff4da6);
     background-size: 400% 400%;
-    animation: galaxyBG 15s ease infinite;
-    overflow: hidden;
+    animation: galaxy 15s ease infinite;
 }
 
-/* movimiento galaxia */
-
-@keyframes galaxyBG {
-
-    0% {
-        background-position: 0% 50%;
-    }
-
-    50% {
-        background-position: 100% 50%;
-    }
-
-    100% {
-        background-position: 0% 50%;
-    }
+@keyframes galaxy {
+    0% {background-position: 0% 50%;}
+    50% {background-position: 100% 50%;}
+    100% {background-position: 0% 50%;}
 }
-
-/* =========================================================
-✨ TEXTOS
-========================================================= */
 
 h1, h2, h3, p, label {
-    color: #ffd6f0 !important;
+    color: #ffd6f5 !important;
     font-weight: bold;
-    text-shadow: 0 0 10px rgba(255,255,255,0.25);
 }
 
-/* =========================================================
-💖 BOTONES
-========================================================= */
-
-.stButton>button {
-
+.stButton > button {
     background: rgba(255, 77, 166, 0.25);
-
     color: white;
-
-    border-radius: 20px;
-
+    border-radius: 18px;
     border: 1px solid rgba(255,255,255,0.3);
-
-    padding: 12px 25px;
-
+    padding: 10px 20px;
     font-size: 18px;
-
-    backdrop-filter: blur(8px);
-
-    box-shadow:
-        0 0 10px rgba(255, 77, 166, 0.5),
-        0 0 20px rgba(255, 77, 166, 0.3);
-
-    transition: all 0.3s ease;
+    box-shadow: 0 0 15px rgba(255, 77, 166, 0.5);
+    transition: 0.3s;
 }
 
-.stButton>button:hover {
-
-    transform: scale(1.08);
-
-    background: rgba(255, 77, 166, 0.45);
-
-    box-shadow:
-        0 0 20px rgba(255, 77, 166, 0.9),
-        0 0 40px rgba(255, 77, 166, 0.6);
+.stButton > button:hover {
+    transform: scale(1.05);
+    background: rgba(255, 77, 166, 0.5);
 }
-
-/* =========================================================
-💖⭐🐢 FLOTANTES
-========================================================= */
 
 .floating {
     position: fixed;
-
     width: 100%;
     height: 100%;
-
     top: 0;
     left: 0;
-
     pointer-events: none;
-
     z-index: 9999;
 }
 
 .float-item {
-
     position: absolute;
-
     bottom: -50px;
-
     animation: floatUp linear infinite;
-
     opacity: 0.8;
 }
 
-.float-item:nth-child(1){
-    left: 10%;
-    font-size: 22px;
-    animation-duration: 10s;
-}
-
-.float-item:nth-child(2){
-    left: 25%;
-    font-size: 28px;
-    animation-duration: 14s;
-}
-
-.float-item:nth-child(3){
-    left: 40%;
-    font-size: 20px;
-    animation-duration: 12s;
-}
-
-.float-item:nth-child(4){
-    left: 55%;
-    font-size: 30px;
-    animation-duration: 16s;
-}
-
-.float-item:nth-child(5){
-    left: 70%;
-    font-size: 24px;
-    animation-duration: 13s;
-}
-
-.float-item:nth-child(6){
-    left: 85%;
-    font-size: 20px;
-    animation-duration: 11s;
-}
-
-/* animación */
+.float-item:nth-child(1){left:10%;font-size:24px;animation-duration:10s;}
+.float-item:nth-child(2){left:25%;font-size:30px;animation-duration:12s;}
+.float-item:nth-child(3){left:40%;font-size:22px;animation-duration:9s;}
+.float-item:nth-child(4){left:55%;font-size:28px;animation-duration:13s;}
+.float-item:nth-child(5){left:70%;font-size:24px;animation-duration:11s;}
+.float-item:nth-child(6){left:85%;font-size:20px;animation-duration:10s;}
 
 @keyframes floatUp {
-
     0% {
         transform: translateY(0) rotate(0deg);
         opacity: 0;
@@ -179,19 +87,12 @@ h1, h2, h3, p, label {
 </style>
 
 <div class="floating">
-
     <div class="float-item">💖</div>
-
     <div class="float-item">⭐</div>
-
     <div class="float-item">🐢</div>
-
     <div class="float-item">💖</div>
-
     <div class="float-item">⭐</div>
-
     <div class="float-item">🐢</div>
-
 </div>
 
 """, unsafe_allow_html=True)
@@ -199,43 +100,72 @@ h1, h2, h3, p, label {
 # =========================================================
 # 💖 TÍTULO
 # =========================================================
+
 st.title("💖 Hola mi querido 💖")
 
 # =========================================================
 # 🎵 MÚSICA
 # =========================================================
+
 st.write("🎵 I Wanna Be Yours - Arctic Monkeys 💖")
 st.video("https://www.youtube.com/watch?v=nyuo9-OjNNg")
 
 # =========================================================
+# 🌌 FRASES ROMÁNTICAS
+# =========================================================
+
+frases = [
+    "💖 Eres mi lugar favorito.",
+    "🐢 Te elegiría en todas las vidas.",
+    "⭐ Tus ojos son mi galaxia favorita.",
+    "💖 Mi corazón siempre vuelve a ti.",
+    "🌌 Contigo todo se siente bonito."
+]
+
+st.info(random.choice(frases))
+
+# =========================================================
 # 📌 OPCIONES
 # =========================================================
+
 opcion = st.selectbox(
     "Elige una opción:",
-    ["Carta", "Cuánto te amo", "Sorpresa ✨", "Poemas 💖"]
+    [
+        "Carta",
+        "Cuánto te amo",
+        "Sorpresa ✨",
+        "Poemas 💖",
+        "Mascota 🐢",
+        "Mini juego ⭐"
+    ]
 )
 
 # =========================================================
 # 💌 CARTA
 # =========================================================
+
 if opcion == "Carta":
 
     st.subheader("💖 Carta")
 
-    st.write("""
+    carta = """
 Si existen otras vidas, otras muertes y otros universos, espero encontrarte en cada uno de ellos.
 Porque siento que incluso el fin del tiempo sería incapaz de acabar con lo que siento por ti.
-Aun cuando mi cuerpo desaparezca y solo queden cenizas de mí, sé que incluso ellas seguirían amándote,
-porque no creo poder dejar de enamorarme de cada parte de ti, de cada lunar, de cada detalle y de esos ojitos suyos
-en los que podría perderme durante horas sin sentir que es suficiente, porque no existe universo en el que mi corazón
-no vuelva a elegirlo a usted, ni versión de mí que no termine enamorándose nuevamente de usted,
-porque sin importar cuándo, dónde o en qué vida sea, mi corazón siempre va a encontrar el camino de regreso a usted,
-y te aseguro que podría pasar una eternidad admirándolo y aun así sentir que me faltaría tiempo para seguir amándolo…
-""")
+Aun cuando mi cuerpo desaparezca y solo queden cenizas de mí, sé que incluso ellas seguirían amándote.
+"""
+
+    efecto = st.empty()
+    texto = ""
+
+    for letra in carta:
+        texto += letra
+        efecto.markdown(texto)
+        time.sleep(0.01)
 
 # =========================================================
 # 💖 CUÁNTO TE AMO
 # =========================================================
+
 if opcion == "Cuánto te amo":
 
     if "run" not in st.session_state:
@@ -246,91 +176,6 @@ if opcion == "Cuánto te amo":
     col1, col2 = st.columns(2)
 
     if col1.button("💖 Iniciar"):
-
-        st.markdown("""
-
-        <style>
-
-        .loveRain {
-            position: fixed;
-            width: 100%;
-            height: 100%;
-            top: 0;
-            left: 0;
-            pointer-events: none;
-            z-index: 9999;
-        }
-
-        .drop {
-            position: absolute;
-            top: -50px;
-            animation: fall linear forwards;
-        }
-
-        .drop:nth-child(1){
-            left:10%;
-            font-size:30px;
-            animation-duration:3s;
-        }
-
-        .drop:nth-child(2){
-            left:20%;
-            font-size:25px;
-            animation-duration:4s;
-        }
-
-        .drop:nth-child(3){
-            left:35%;
-            font-size:35px;
-            animation-duration:3.5s;
-        }
-
-        .drop:nth-child(4){
-            left:50%;
-            font-size:28px;
-            animation-duration:4s;
-        }
-
-        .drop:nth-child(5){
-            left:65%;
-            font-size:34px;
-            animation-duration:3s;
-        }
-
-        .drop:nth-child(6){
-            left:80%;
-            font-size:26px;
-            animation-duration:4.5s;
-        }
-
-        @keyframes fall {
-
-            0% {
-                transform: translateY(-100px) rotate(0deg);
-                opacity: 1;
-            }
-
-            100% {
-                transform: translateY(120vh) rotate(360deg);
-                opacity: 0;
-            }
-        }
-
-        </style>
-
-        <div class="loveRain">
-
-            <div class="drop">💖</div>
-            <div class="drop">🐢</div>
-            <div class="drop">💖</div>
-            <div class="drop">🐢</div>
-            <div class="drop">💖</div>
-            <div class="drop">🐢</div>
-
-        </div>
-
-        """, unsafe_allow_html=True)
-
         st.session_state.run = True
         st.session_state.final = False
 
@@ -342,10 +187,4 @@ if opcion == "Cuánto te amo":
 
     if st.session_state.run:
         while st.session_state.run:
-            box.markdown(f"### 💖 {st.session_state.num} te amo 💖")
-            st.session_state.num += 1
-            time.sleep(0.05)
-            st.rerun()
-
-    if st.session_state.final:
-        st.success("Encontrado, usted 💖")
+```
