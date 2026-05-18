@@ -5,7 +5,7 @@ from datetime import date
 
 st.set_page_config(page_title="💖 Para mi amor 💖", page_icon="💖")
 
-# 🎀 ESTILO
+# 🎀 ESTILO (FONDO ROSA PASTEL + LETRAS BLANCAS)
 st.markdown("""
 <style>
 .stApp {
@@ -25,10 +25,13 @@ p, h1, h2, h3, label {
 </style>
 """, unsafe_allow_html=True)
 
-# 💖 INICIO SIMPLE
+# 💖 INICIO
 st.title("<3")
-
 st.markdown("### Esta app fue hecha con mucho amor para usted, el motivo de cada latido 💖")
+
+# 🎵 CANCIÓN (YOUTUBE)
+st.subheader("🎵 Música 💖")
+st.video("https://www.youtube.com/watch?v=nyuo9-OjNNg?si=kSckAiD3DZGmx6AW")
 
 # 🎀 MENÚ
 opcion = st.selectbox(
@@ -38,9 +41,9 @@ opcion = st.selectbox(
 
 # 🏠 INICIO
 if opcion == "🏠 Inicio":
-    st.write("💖 <3")
+    st.write("<3")
 
-# 💌 CARTA (SIN CAMBIOS)
+# 💌 CARTA (NO MODIFICADA)
 elif opcion == "💌 Carta":
     st.subheader("💌 Carta de amor")
 
@@ -51,7 +54,7 @@ elif opcion == "💌 Carta":
     </div>
     """, unsafe_allow_html=True)
 
-# 📖 POEMAS (SIN CAMBIOS + CORAZONES ANIMADOS)
+# 📖 POEMAS (CON CORAZONES ANIMADOS)
 elif opcion == "📖 Poemas":
     st.subheader("📖 Poemas")
 
@@ -150,16 +153,16 @@ y mi razón de quedar."""
 
     st.markdown(f"<pre style='color:white; font-size:18px'>{animated}</pre>", unsafe_allow_html=True)
 
-# 💖 CONTADOR
+# 💖 CONTADOR (22 ABRIL)
 elif opcion == "💖 Contador de días":
-    st.subheader("💖 Contador de amor")
+    st.subheader("💖 Nuestro amor en el tiempo")
 
     inicio = date(2024, 4, 22)
     hoy = date.today()
 
     dias = (hoy - inicio).days
 
-    st.success(f"💖 {dias} días juntos 💖")
+    st.success(f"💖 Llevamos {dias} días juntos 💖")
     st.write("<3")
 
 # ✨ SORPRESA
