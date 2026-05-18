@@ -25,9 +25,14 @@ p, h1, h2, h3, label {
 </style>
 """, unsafe_allow_html=True)
 
-# 💖 BIENVENIDA (CORREGIDO)
+# 💖 INICIO
 st.title("💖 Bienvenido querido mío 💖")
-st.markdown("### <3")
+
+st.markdown("### El motivo de cada latido es de usted 💖")
+
+# 🎵 MÚSICA (INICIO)
+st.subheader("🎵 Música 💖")
+st.video("https://www.youtube.com/watch?v=nyuo9-OjNNg")
 
 # 🎀 MENÚ
 opcion = st.selectbox(
@@ -38,8 +43,9 @@ opcion = st.selectbox(
 # 🏠 INICIO
 if opcion == "🏠 Inicio":
     st.write("<3")
+    st.video("https://www.youtube.com/watch?v=nyuo9-OjNNg")
 
-# 💌 CARTA
+# 💌 CARTA (SIN CAMBIOS)
 elif opcion == "💌 Carta":
     st.subheader("💌 Carta de amor")
 
@@ -50,7 +56,7 @@ elif opcion == "💌 Carta":
     </div>
     """, unsafe_allow_html=True)
 
-# 📖 POEMAS (CORAZONES FLOTANDO EN FONDO)
+# 📖 POEMAS (COMPLETOS RESTAURADOS, SIN CORAZONES)
 elif opcion == "📖 Poemas":
     st.subheader("📖 Poemas")
 
@@ -95,7 +101,16 @@ Eres la parte más querida,
 de esta alma perdida.
 
 Y en ti volvió mi vida,
-suave, dulce y sentida.""",
+suave, dulce y sentida.
+
+En cualquier lugar yo te vuelvo a amar,
+sin poderte soltar te vuelvo a buscar.
+
+Porque en ti aprendí a querer,
+y en ti quiero permanecer.
+
+Y aunque el mundo pueda cambiar,
+yo te voy a recordar.""",
 
 """Te pienso sin poder parar,
 aunque el tiempo quiera cambiar.
@@ -107,7 +122,16 @@ En cada latido estás,
 no te puedo soltar.
 
 Mi alma te vuelve a buscar,
-sin dejar de soñar."""
+sin dejar de soñar.
+
+Porque en cada vida te amaré,
+sin poderte olvidar.
+
+Y aunque todo quiera acabar,
+yo te vuelvo a encontrar.
+
+Eres mi forma de amar,
+y mi razón de quedar."""
     ]
 
     if "p" not in st.session_state:
@@ -121,17 +145,9 @@ sin dejar de soñar."""
     if col2.button("➡️"):
         st.session_state.p = (st.session_state.p + 1) % len(poemas)
 
-    # 💖 CORAZONES FLOTANDO EN FONDO (NO TEXTO)
-    hearts = ["💖","💘","💝","💗","💞","❤️"]
-
-    st.markdown("<div style='font-size:20px'>", unsafe_allow_html=True)
-    for _ in range(15):
-        st.markdown(" ".join(random.choice(hearts) for _ in range(20)))
-    st.markdown("</div>", unsafe_allow_html=True)
-
     st.markdown(f"<pre style='color:white; font-size:18px'>{poemas[st.session_state.p]}</pre>", unsafe_allow_html=True)
 
-# 💖 CONTADOR
+# 💖 CONTADOR (NO CAMBIADO)
 elif opcion == "💖 Contador de días":
     st.subheader("💖 Nuestro amor en el tiempo")
 
@@ -143,7 +159,7 @@ elif opcion == "💖 Contador de días":
     st.success(f"💖 Llevamos {dias} días juntos 💖")
     st.write("<3")
 
-# ✨ SORPRESA (CORRECTA)
+# ✨ SORPRESA (NO CAMBIADO)
 elif opcion == "✨ Sorpresa":
     st.subheader("💖 Buscando el amor de mi vida...")
 
@@ -156,7 +172,7 @@ elif opcion == "✨ Sorpresa":
     st.success("💖 Encontrado, usted 💖")
     st.write("<3")
 
-# 🎮 JUEGO (CORRECTO FINAL)
+# 🎮 JUEGO (NO CAMBIADO)
 elif opcion == "🎮 Juego secreto":
     st.subheader("🎮 Encuentra el corazón secreto 💖")
 
