@@ -5,10 +5,38 @@ from datetime import date
 
 st.set_page_config(page_title="💖 Para mi amor 💖", page_icon="💖")
 
+# 🎀 ESTILO (FONDO ROSA PASTEL + LETRAS BLANCAS)
+st.markdown("""
+<style>
+.stApp {
+    background: linear-gradient(135deg, #ffd1dc, #ffe4ec);
+}
+
+p, h1, h2, h3, label {
+    color: white !important;
+    font-weight: bold;
+}
+
+/* botones */
+.stButton>button {
+    background-color: #ff6fae;
+    color: white;
+    border-radius: 15px;
+    font-size: 16px;
+    border: none;
+}
+
+/* selectbox */
+div[data-baseweb="select"] {
+    color: black;
+}
+</style>
+""", unsafe_allow_html=True)
+
 # 🌟 BIENVENIDA
 st.title("💖 Bienvenido querido mío 💖")
 
-mensaje = "Preparando nuestro mundo..."
+mensaje = "Preparando nuestro mundo de amor..."
 texto = st.empty()
 
 typed = ""
@@ -19,9 +47,8 @@ for letra in mensaje:
 
 st.write("💖 Todo listo para ti 💖")
 
-# 🎵 CANCION (YOUTUBE)
+# 🎵 MÚSICA YOUTUBE
 st.subheader("🎵 Música para ti 💖")
-
 st.video("https://www.youtube.com/watch?v=nyuo9-OjNNg")
 
 # 🎀 MENÚ
@@ -35,18 +62,18 @@ if opcion == "🏠 Inicio":
     st.subheader("💖 Inicio")
     st.write("💖 Esta app fue hecha con amor 💖")
 
-# 💌 CARTA
+# 💌 CARTA (NO CAMBIADA)
 elif opcion == "💌 Carta":
     st.subheader("💌 Carta de amor")
 
     st.markdown("""
-    <div style="color:#ff2e88; font-size:18px; line-height:1.8; font-weight:bold;">
+    <div style="color:white; font-size:18px; line-height:1.8; font-weight:bold;">
     💖 Carta<br><br>
     Si existen otras vidas, otras muertes y otros universos, espero encontrarte en cada uno de ellos. Porque siento que incluso el fin del tiempo sería incapaz de acabar con lo que siento por ti. Aun cuando mi cuerpo desaparezca y solo queden cenizas de mí, sé que incluso ellas seguirían amándote, porque no creo poder dejar de enamorarme de cada parte de ti, de cada lunar, de cada detalle y de esos ojitos suyos en los que podría perderme durante horas sin sentir que es suficiente, porque no existe universo en el que mi corazón no vuelva a elegirlo a usted, ni versión de mí que no termine enamorándose nuevamente de usted, porque sin importar cuándo, dónde o en qué vida sea, mi corazón siempre va a encontrar el camino de regreso a usted, y te aseguro que podría pasar una eternidad admirándolo y aun así sentir que me faltaría tiempo para seguir amándolo…
     </div>
     """, unsafe_allow_html=True)
 
-# 📖 POEMAS (CORAZONES ANIMADOS)
+# 📖 POEMAS
 elif opcion == "📖 Poemas":
     st.subheader("📖 Poemas")
 
@@ -86,13 +113,13 @@ sin poderte olvidar.
             animated += line + " " + random.choice(hearts) + "\n"
 
         placeholder.markdown(
-            f"<pre style='color:#ff2e88; font-size:18px'>{animated}</pre>",
+            f"<pre style='color:white; font-size:18px'>{animated}</pre>",
             unsafe_allow_html=True
         )
 
         time.sleep(0.2)
 
-# 💖 CONTADOR
+# 💖 CONTADOR (22 ABRIL)
 elif opcion == "💖 Contador de días":
     st.subheader("💖 Nuestro amor en el tiempo")
 
