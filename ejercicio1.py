@@ -25,13 +25,9 @@ p, h1, h2, h3, label {
 </style>
 """, unsafe_allow_html=True)
 
-# 💖 INICIO
-st.title("<3")
-st.markdown("### Esta app fue hecha con mucho amor para usted, el motivo de cada latido 💖")
-
-# 🎵 CANCIÓN
-st.subheader("🎵 Música 💖")
-st.video("https://www.youtube.com/watch?v=nyuo9-OjNNg")
+# 💖 BIENVENIDA (CORREGIDO)
+st.title("💖 Bienvenido querido mío 💖")
+st.markdown("### <3")
 
 # 🎀 MENÚ
 opcion = st.selectbox(
@@ -50,15 +46,13 @@ elif opcion == "💌 Carta":
     st.markdown("""
     <div style="color:white; font-size:18px; line-height:1.8; font-weight:bold;">
     💖 Carta<br><br>
-    Si existen otras vidas, otras muertes y otros universos, espero encontrarte en cada uno de ellos. Porque siento que incluso el fin del tiempo sería incapaz de acabar con lo que siento por ti. Aun cuando mi cuerpo desaparezca y solo queden cenizas de mí, sé que incluso ellas seguirían amándote, porque no creo poder dejar de enamorarme de cada parte de ti, de cada lunar, de cada detalle y de esos ojitos suyos en los que podría perderme durante horas sin sentir que es suficiente, porque no existe universo en el que mi corazón no vuelva a elegirlo a usted, ni versión de mí que no termine enamorándose nuevamente de usted, porque sin importar cuándo, dónde o en qué vida sea, mi corazón siempre va a encontrar el camino de regreso a usted, y te aseguro que podría pasar una eternidad admirándolo y aun así sentir que me faltaría tiempo para seguir amándolo…
+    Si existen otras vidas, otras muertes y otros universos, espero encontrarte en cada uno de ellos. Porque siento que incluso el fin del tiempo sería incapaz de acabar con lo que siento por ti. Aun cuando mi cuerpo desaparezca y solo queden cenizas de mí, sé que incluso ellas seguirían amándote, porque no creo poder dejar de enamorarme de cada parte de ti, de cada lunar, de cada detalle y de esos ojitos suyos en los que podría perderme durante horas sin sentir que es suficiente, porque no existe universo en el que mi corazón no vuelva a elegirlo a usted, ni versión de mí que no termine enamorándose nuevamente de usted, porque sin importar cuándo, dónde o en qué vida sea, mi corazón siempre va a encontrar el camino de regreso a usted…
     </div>
     """, unsafe_allow_html=True)
 
-# 📖 POEMAS (CORAZONES FUERA DEL TEXTO)
+# 📖 POEMAS (CORAZONES FLOTANDO EN FONDO)
 elif opcion == "📖 Poemas":
     st.subheader("📖 Poemas")
-
-    hearts = ["💖","💘","💝","💗","💞","❤️"]
 
     poemas = [
 """Tu sonrisa es mi lugar,
@@ -101,16 +95,7 @@ Eres la parte más querida,
 de esta alma perdida.
 
 Y en ti volvió mi vida,
-suave, dulce y sentida.
-
-En cualquier lugar yo te vuelvo a amar,
-sin poderte soltar te vuelvo a buscar.
-
-Porque en ti aprendí a querer,
-y en ti quiero permanecer.
-
-Y aunque el mundo pueda cambiar,
-yo te voy a recordar.""",
+suave, dulce y sentida.""",
 
 """Te pienso sin poder parar,
 aunque el tiempo quiera cambiar.
@@ -122,16 +107,7 @@ En cada latido estás,
 no te puedo soltar.
 
 Mi alma te vuelve a buscar,
-sin dejar de soñar.
-
-Porque en cada vida te amaré,
-sin poderte olvidar.
-
-Y aunque todo quiera acabar,
-yo te vuelvo a encontrar.
-
-Eres mi forma de amar,
-y mi razón de quedar."""
+sin dejar de soñar."""
     ]
 
     if "p" not in st.session_state:
@@ -145,14 +121,17 @@ y mi razón de quedar."""
     if col2.button("➡️"):
         st.session_state.p = (st.session_state.p + 1) % len(poemas)
 
-    texto = poemas[st.session_state.p]
+    # 💖 CORAZONES FLOTANDO EN FONDO (NO TEXTO)
+    hearts = ["💖","💘","💝","💗","💞","❤️"]
 
-    # 💖 CORAZONES FUERA
-    st.write(" ".join(random.choices(hearts, k=20)))
+    st.markdown("<div style='font-size:20px'>", unsafe_allow_html=True)
+    for _ in range(15):
+        st.markdown(" ".join(random.choice(hearts) for _ in range(20)))
+    st.markdown("</div>", unsafe_allow_html=True)
 
-    st.markdown(f"<pre style='color:white; font-size:18px'>{texto}</pre>", unsafe_allow_html=True)
+    st.markdown(f"<pre style='color:white; font-size:18px'>{poemas[st.session_state.p]}</pre>", unsafe_allow_html=True)
 
-# 💖 CONTADOR (CORREGIDO 22 ABRIL 2026)
+# 💖 CONTADOR
 elif opcion == "💖 Contador de días":
     st.subheader("💖 Nuestro amor en el tiempo")
 
@@ -164,7 +143,7 @@ elif opcion == "💖 Contador de días":
     st.success(f"💖 Llevamos {dias} días juntos 💖")
     st.write("<3")
 
-# ✨ SORPRESA (PORCENTAJE REAL)
+# ✨ SORPRESA (CORRECTA)
 elif opcion == "✨ Sorpresa":
     st.subheader("💖 Buscando el amor de mi vida...")
 
@@ -174,10 +153,10 @@ elif opcion == "✨ Sorpresa":
         time.sleep(0.02)
         barra.progress(i)
 
-    st.success("💖 Usted 💖")
+    st.success("💖 Encontrado, usted 💖")
     st.write("<3")
 
-# 🎮 JUEGO
+# 🎮 JUEGO (CORRECTO FINAL)
 elif opcion == "🎮 Juego secreto":
     st.subheader("🎮 Encuentra el corazón secreto 💖")
 
@@ -188,7 +167,7 @@ elif opcion == "🎮 Juego secreto":
 
     if st.button("Probar 💖"):
         if num == st.session_state.secreto:
-            st.success("💖 ¡Correcto! 💖")
+            st.success("💖 Ganaste, te amo 💖")
             st.balloons()
             st.session_state.secreto = random.randint(1, 5)
         else:
