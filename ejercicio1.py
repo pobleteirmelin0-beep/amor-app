@@ -1,4 +1,4 @@
-# 💖 APP COMPLETA GALAXIA ROSADA 💖
+
 
 import streamlit as st
 import time
