@@ -1,4 +1,5 @@
-python
+# 💖 APP COMPLETA GALAXIA ROSADA 💖
+
 import streamlit as st
 import time
 import random
@@ -6,9 +7,13 @@ import random
 st.set_page_config(page_title="💖 Para mi amor 💖", page_icon="💖")
 
 # =========================================================
+
 # 🌌 ESTILO GALAXIA
+
 # =========================================================
+
 st.markdown("""
+
 <style>
 
 .stApp {
@@ -98,93 +103,226 @@ h1, h2, h3, p, label {
 """, unsafe_allow_html=True)
 
 # =========================================================
+
 # 💖 TÍTULO
+
 # =========================================================
 
 st.title("💖 Hola mi querido 💖")
 
 # =========================================================
+
 # 🎵 MÚSICA
+
 # =========================================================
 
 st.write("🎵 I Wanna Be Yours - Arctic Monkeys 💖")
-st.video("https://www.youtube.com/watch?v=nyuo9-OjNNg")
+st.video("[https://www.youtube.com/watch?v=nyuo9-OjNNg](https://www.youtube.com/watch?v=nyuo9-OjNNg)")
 
 # =========================================================
+
 # 🌌 FRASES ROMÁNTICAS
+
 # =========================================================
 
 frases = [
-    "💖 Eres mi lugar favorito.",
-    "🐢 Te elegiría en todas las vidas.",
-    "⭐ Tus ojos son mi galaxia favorita.",
-    "💖 Mi corazón siempre vuelve a ti.",
-    "🌌 Contigo todo se siente bonito."
+"💖 Eres mi lugar favorito.",
+"🐢 Te elegiría en todas las vidas.",
+"⭐ Tus ojos son mi galaxia favorita.",
+"💖 Mi corazón siempre vuelve a ti.",
+"🌌 Contigo todo se siente bonito."
 ]
 
 st.info(random.choice(frases))
 
 # =========================================================
+
 # 📌 OPCIONES
+
 # =========================================================
 
 opcion = st.selectbox(
-    "Elige una opción:",
-    [
-        "Carta",
-        "Cuánto te amo",
-        "Sorpresa ✨",
-        "Poemas 💖",
-        "Mascota 🐢",
-        "Mini juego ⭐"
-    ]
+"Elige una opción:",
+[
+"Carta",
+"Cuánto te amo",
+"Sorpresa ✨",
+"Poemas 💖",
+"Mascota 🐢",
+"Mini juego ⭐"
+]
 )
 
 # =========================================================
+
 # 💌 CARTA
+
 # =========================================================
 
 if opcion == "Carta":
 
-    st.subheader("💖 Carta")
+```
+st.subheader("💖 Carta")
 
-    carta = """
+carta = """
+```
+
 Si existen otras vidas, otras muertes y otros universos, espero encontrarte en cada uno de ellos.
 Porque siento que incluso el fin del tiempo sería incapaz de acabar con lo que siento por ti.
 Aun cuando mi cuerpo desaparezca y solo queden cenizas de mí, sé que incluso ellas seguirían amándote.
 """
 
-    efecto = st.empty()
-    texto = ""
+```
+efecto = st.empty()
+texto = ""
 
-    for letra in carta:
-        texto += letra
-        efecto.markdown(texto)
-        time.sleep(0.01)
+for letra in carta:
+    texto += letra
+    efecto.markdown(texto)
+    time.sleep(0.01)
+```
 
 # =========================================================
+
 # 💖 CUÁNTO TE AMO
+
 # =========================================================
 
 if opcion == "Cuánto te amo":
 
-    if "run" not in st.session_state:
-        st.session_state.run = False
-        st.session_state.num = 1
-        st.session_state.final = False
+```
+if "run" not in st.session_state:
+    st.session_state.run = False
+    st.session_state.num = 1
+    st.session_state.final = False
 
-    col1, col2 = st.columns(2)
+col1, col2 = st.columns(2)
 
-    if col1.button("💖 Iniciar"):
-        st.session_state.run = True
-        st.session_state.final = False
+if col1.button("💖 Iniciar"):
+    st.session_state.run = True
+    st.session_state.final = False
 
-    if col2.button("🛑 Detener"):
-        st.session_state.run = False
-        st.session_state.final = True
+if col2.button("🛑 Detener"):
+    st.session_state.run = False
+    st.session_state.final = True
 
-    box = st.empty()
+box = st.empty()
 
-    if st.session_state.run:
-        while st.session_state.run:
+if st.session_state.run:
+    while st.session_state.run:
+        box.markdown(f"### 💖 {st.session_state.num} te amo 💖")
+        st.session_state.num += 1
+        time.sleep(0.05)
+        st.rerun()
+
+if st.session_state.final:
+    st.success("Encontrado, usted 💖")
+```
+
+# =========================================================
+
+# ✨ SORPRESA
+
+# =========================================================
+
+if opcion == "Sorpresa ✨":
+
+```
+st.write("💖 Buscando al amor de mi vida...")
+
+barra = st.progress(0)
+
+for i in range(100):
+    time.sleep(0.02)
+    barra.progress(i + 1)
+
+st.success("Encontrado, usted 💖")
+
+st.balloons()
+```
+
+# =========================================================
+
+# 💖 POEMAS
+
+# =========================================================
+
+if opcion == "Poemas 💖":
+
+```
+poemas = [
+    "💖 Tu sonrisa es mi lugar favorito.",
+    "🌌 Aunque el mundo cambie, yo te vuelvo a amar.",
+    "⭐ En cada vida te volvería a elegir.",
+    "🐢 Mi corazón siempre encuentra el camino hacia ti."
+]
+
+if "poema_idx" not in st.session_state:
+    st.session_state.poema_idx = 0
+
+st.markdown(f"## {poemas[st.session_state.poema_idx]}")
+
+c1, c2 = st.columns(2)
+
+if c1.button("⬅ Anterior"):
+    st.session_state.poema_idx = (st.session_state.poema_idx - 1) % len(poemas)
+    st.rerun()
+
+if c2.button("Siguiente ➜"):
+    st.session_state.poema_idx = (st.session_state.poema_idx + 1) % len(poemas)
+    st.rerun()
+```
+
+# =========================================================
+
+# 🐢 MASCOTA
+
+# =========================================================
+
+if opcion == "Mascota 🐢":
+
+```
+st.subheader("🐢 Tortuguita bebé")
+
+st.markdown("# 🐢")
+
+if "energia" not in st.session_state:
+    st.session_state.energia = 50
+
+st.write(f"💖 Energía: {st.session_state.energia}")
+
+if st.button("🍓 Dar comida"):
+    st.session_state.energia += 10
+    st.success("🐢 La tortuguita está feliz 💖")
+
+if st.button("⭐ Jugar"):
+    st.session_state.energia -= 5
+    st.success("🐢 La tortuguita jugó contigo 🌌")
+```
+
+# =========================================================
+
+# ⭐ MINI JUEGO
+
+# =========================================================
+
+if opcion == "Mini juego ⭐":
+
+```
+st.subheader("⭐ Atrapa estrellas")
+
+st.write("Presiona el botón para atrapar estrellas 🌌")
+
+if "score" not in st.session_state:
+    st.session_state.score = 0
+
+if st.button("⭐ Atrapar"):
+
+    puntos = random.randint(1, 5)
+
+    st.session_state.score += puntos
+
+    st.success(f"¡Ganaste {puntos} estrellas! ⭐")
+
+st.write(f"🌌 Puntos: {st.session_state.score}")
 ```
