@@ -5,7 +5,7 @@ from datetime import date
 
 st.set_page_config(page_title="💖 Para mi amor 💖", page_icon="💖")
 
-# 🎀 ESTILO (FONDO ROSA PASTEL + LETRAS BLANCAS)
+# 🎀 ESTILO
 st.markdown("""
 <style>
 .stApp {
@@ -17,39 +17,18 @@ p, h1, h2, h3, label {
     font-weight: bold;
 }
 
-/* botones */
 .stButton>button {
     background-color: #ff6fae;
     color: white;
     border-radius: 15px;
-    font-size: 16px;
-    border: none;
-}
-
-/* selectbox */
-div[data-baseweb="select"] {
-    color: black;
 }
 </style>
 """, unsafe_allow_html=True)
 
-# 🌟 BIENVENIDA
-st.title("💖 Bienvenido querido mío 💖")
+# 💖 INICIO SIMPLE
+st.title("<3")
 
-mensaje = "Preparando nuestro mundo de amor..."
-texto = st.empty()
-
-typed = ""
-for letra in mensaje:
-    typed += letra
-    texto.markdown(f"### {typed}")
-    time.sleep(0.04)
-
-st.write("💖 Todo listo para ti 💖")
-
-# 🎵 MÚSICA YOUTUBE
-st.subheader("🎵 Música para ti 💖")
-st.video("https://www.youtube.com/watch?v=nyuo9-OjNNg")
+st.markdown("### Esta app fue hecha con mucho amor para usted, el motivo de cada latido 💖")
 
 # 🎀 MENÚ
 opcion = st.selectbox(
@@ -59,10 +38,9 @@ opcion = st.selectbox(
 
 # 🏠 INICIO
 if opcion == "🏠 Inicio":
-    st.subheader("💖 Inicio")
-    st.write("💖 Esta app fue hecha con amor 💖")
+    st.write("💖 <3")
 
-# 💌 CARTA (NO CAMBIADA)
+# 💌 CARTA (SIN CAMBIOS)
 elif opcion == "💌 Carta":
     st.subheader("💌 Carta de amor")
 
@@ -73,68 +51,119 @@ elif opcion == "💌 Carta":
     </div>
     """, unsafe_allow_html=True)
 
-# 📖 POEMAS
+# 📖 POEMAS (SIN CAMBIOS + CORAZONES ANIMADOS)
 elif opcion == "📖 Poemas":
     st.subheader("📖 Poemas")
 
-    hearts = ["💖", "💘", "💝", "💗", "💞", "❤️"]
-
-    texto_poemas = """
-💖 Tu sonrisa es mi lugar,
+    poemas = [
+"""💖 Tu sonrisa es mi lugar,
 en tu mirada quiero habitar.
 
 Te voy a amar sin parar,
 y contigo quiero caminar.
 
-💖 Si el mundo llega a callar,
+No te dejo de imaginar,
+lo que siento no se va.
+
+Ni el tiempo lo borrará,
+en mi alma siempre estarás.
+
+Hasta el último respirar,
+te voy a amar sin parar.""",
+
+"""💖 Si el mundo llega a callar,
 tu voz me vuelve a guiar.
 
 Si me pierdo al caminar,
 sé que te voy a encontrar.
 
-💖 Te pienso incluso en silencio,
+Porque no dejo de pensar,
+que contigo quiero estar.
+
+Y aunque todo pueda cambiar,
+yo te vuelvo a amar.
+
+En cada instante al recordar,
+siempre vuelvo a tu mirar.""",
+
+"""💖 Te pienso incluso en silencio,
 te llevo en cada pensamiento.
 
-Eres mi refugio eterno,
-mi amor más sincero.
+Mi refugio en tus brazos,
+calma todos mis pasos.
 
-💖 Te pienso sin poder parar,
+Eres la parte más querida,
+de esta alma perdida.
+
+Y en ti volvió mi vida,
+suave, dulce y sentida.
+
+En cualquier lugar yo te vuelvo a amar,
+sin poderte soltar te vuelvo a buscar.
+
+Porque en ti aprendí a querer,
+y en ti quiero permanecer.
+
+Y aunque el mundo pueda cambiar,
+yo te voy a recordar.""",
+
+"""💖 Te pienso sin poder parar,
 aunque el tiempo quiera cambiar.
 
-En cada vida te amaré,
+Sin importar lo que pase,
+siempre vuelvo a amar.
+
+En cada latido estás,
+no te puedo soltar.
+
+Mi alma te vuelve a buscar,
+sin dejar de soñar.
+
+Porque en cada vida te amaré,
 sin poderte olvidar.
-"""
 
-    placeholder = st.empty()
+Y aunque todo quiera acabar,
+yo te vuelvo a encontrar.
 
-    for _ in range(30):
-        animated = ""
-        for line in texto_poemas.split("\n"):
-            animated += line + " " + random.choice(hearts) + "\n"
+Eres mi forma de amar,
+y mi razón de quedar."""
+    ]
 
-        placeholder.markdown(
-            f"<pre style='color:white; font-size:18px'>{animated}</pre>",
-            unsafe_allow_html=True
-        )
+    if "p" not in st.session_state:
+        st.session_state.p = 0
 
-        time.sleep(0.2)
+    col1, col2 = st.columns(2)
 
-# 💖 CONTADOR (22 ABRIL)
+    if col1.button("⬅️"):
+        st.session_state.p = (st.session_state.p - 1) % len(poemas)
+
+    if col2.button("➡️"):
+        st.session_state.p = (st.session_state.p + 1) % len(poemas)
+
+    hearts = ["💖","💘","💝","💗","💞","❤️"]
+
+    texto = poemas[st.session_state.p]
+
+    animated = ""
+    for line in texto.split("\n"):
+        animated += line + " " + random.choice(hearts) + "\n"
+
+    st.markdown(f"<pre style='color:white; font-size:18px'>{animated}</pre>", unsafe_allow_html=True)
+
+# 💖 CONTADOR
 elif opcion == "💖 Contador de días":
-    st.subheader("💖 Nuestro amor en el tiempo")
+    st.subheader("💖 Contador de amor")
 
     inicio = date(2024, 4, 22)
     hoy = date.today()
 
     dias = (hoy - inicio).days
 
-    st.success(f"💖 Llevamos {dias} días juntos 💖")
-    st.balloons()
+    st.success(f"💖 {dias} días juntos 💖")
+    st.write("<3")
 
 # ✨ SORPRESA
 elif opcion == "✨ Sorpresa":
-    st.subheader("💖 Lluvia de amor")
-
     hearts = ["💖", "💘", "💝", "💗", "💞", "❤️"]
     placeholder = st.empty()
 
@@ -157,10 +186,10 @@ elif opcion == "🎮 Juego secreto":
 
     num = st.number_input("Elige un número del 1 al 5 💖", 1, 5)
 
-    if st.button("Probar suerte 💖"):
+    if st.button("Probar 💖"):
         if num == st.session_state.secreto:
-            st.success("💖 ¡Lo encontraste! 💖")
+            st.success("💖 ¡Correcto! 💖")
             st.balloons()
             st.session_state.secreto = random.randint(1, 5)
         else:
-            st.error("💔 No era ese... intenta otra vez")
+            st.error("💔 Intenta otra vez")
