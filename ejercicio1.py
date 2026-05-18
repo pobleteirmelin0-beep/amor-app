@@ -5,32 +5,58 @@ from datetime import date
 
 st.set_page_config(page_title="💖 Para mi amor 💖", page_icon="💖")
 
-# 🎀 ESTILO
+# 💖 ESTILO + CORAZONES FLOTANTES
 st.markdown("""
 <style>
 .stApp {
     background: linear-gradient(135deg, #ffd1dc, #ffe4ec);
+    overflow: hidden;
 }
 
+/* letras */
 p, h1, h2, h3, label {
     color: white !important;
     font-weight: bold;
 }
 
+/* botones */
 .stButton>button {
     background-color: #ff6fae;
     color: white;
     border-radius: 15px;
 }
+
+/* 💖 CORAZONES FLOTANTES REALES */
+.heart {
+    position: fixed;
+    bottom: -10px;
+    font-size: 20px;
+    animation: floatUp 6s linear infinite;
+    opacity: 0.7;
+}
+
+@keyframes floatUp {
+    0% {transform: translateY(0) rotate(0deg);}
+    100% {transform: translateY(-100vh) rotate(360deg);}
+}
 </style>
 """, unsafe_allow_html=True)
 
-# 💖 INICIO
-st.title("💖 Bienvenido querido mío 💖")
+# 💖 CORAZONES EN FONDO (ANIMADOS)
+hearts = ["💖","💘","💝","💗","💞","❤️"]
 
+for i in range(15):
+    st.markdown(
+        f"<div class='heart' style='left:{random.randint(0,100)}vw; animation-delay:{random.random()*5}s'>"
+        f"{random.choice(hearts)}</div>",
+        unsafe_allow_html=True
+    )
+
+# 💖 TITULO
+st.title("💖 Bienvenido querido mío 💖")
 st.markdown("### El motivo de cada latido es de usted 💖")
 
-# 🎵 MÚSICA (INICIO)
+# 🎵 CANCIÓN (SOLO UNA)
 st.subheader("🎵 Música 💖")
 st.video("https://www.youtube.com/watch?v=nyuo9-OjNNg")
 
@@ -43,7 +69,6 @@ opcion = st.selectbox(
 # 🏠 INICIO
 if opcion == "🏠 Inicio":
     st.write("<3")
-    st.video("https://www.youtube.com/watch?v=nyuo9-OjNNg")
 
 # 💌 CARTA (SIN CAMBIOS)
 elif opcion == "💌 Carta":
@@ -52,11 +77,11 @@ elif opcion == "💌 Carta":
     st.markdown("""
     <div style="color:white; font-size:18px; line-height:1.8; font-weight:bold;">
     💖 Carta<br><br>
-    Si existen otras vidas, otras muertes y otros universos, espero encontrarte en cada uno de ellos. Porque siento que incluso el fin del tiempo sería incapaz de acabar con lo que siento por ti. Aun cuando mi cuerpo desaparezca y solo queden cenizas de mí, sé que incluso ellas seguirían amándote, porque no creo poder dejar de enamorarme de cada parte de ti, de cada lunar, de cada detalle y de esos ojitos suyos en los que podría perderme durante horas sin sentir que es suficiente, porque no existe universo en el que mi corazón no vuelva a elegirlo a usted, ni versión de mí que no termine enamorándose nuevamente de usted, porque sin importar cuándo, dónde o en qué vida sea, mi corazón siempre va a encontrar el camino de regreso a usted…
+    Si existen otras vidas, otras muertes y otros universos, espero encontrarte en cada uno de ellos. Porque siento que incluso el fin del tiempo sería incapaz de acabar con lo que siento por ti. Aun cuando mi cuerpo desaparezca y solo queden cenizas de mí, sé que incluso ellas seguirían amándote...
     </div>
     """, unsafe_allow_html=True)
 
-# 📖 POEMAS (COMPLETOS RESTAURADOS, SIN CORAZONES)
+# 📖 POEMAS (FORMATO LIMPIO VERTICAL)
 elif opcion == "📖 Poemas":
     st.subheader("📖 Poemas")
 
@@ -101,16 +126,7 @@ Eres la parte más querida,
 de esta alma perdida.
 
 Y en ti volvió mi vida,
-suave, dulce y sentida.
-
-En cualquier lugar yo te vuelvo a amar,
-sin poderte soltar te vuelvo a buscar.
-
-Porque en ti aprendí a querer,
-y en ti quiero permanecer.
-
-Y aunque el mundo pueda cambiar,
-yo te voy a recordar.""",
+suave, dulce y sentida.""",
 
 """Te pienso sin poder parar,
 aunque el tiempo quiera cambiar.
@@ -122,16 +138,7 @@ En cada latido estás,
 no te puedo soltar.
 
 Mi alma te vuelve a buscar,
-sin dejar de soñar.
-
-Porque en cada vida te amaré,
-sin poderte olvidar.
-
-Y aunque todo quiera acabar,
-yo te vuelvo a encontrar.
-
-Eres mi forma de amar,
-y mi razón de quedar."""
+sin dejar de soñar."""
     ]
 
     if "p" not in st.session_state:
@@ -145,7 +152,10 @@ y mi razón de quedar."""
     if col2.button("➡️"):
         st.session_state.p = (st.session_state.p + 1) % len(poemas)
 
-    st.markdown(f"<pre style='color:white; font-size:18px'>{poemas[st.session_state.p]}</pre>", unsafe_allow_html=True)
+    st.markdown(
+        f"<pre style='color:white; font-size:18px; white-space:pre-wrap'>{poemas[st.session_state.p]}</pre>",
+        unsafe_allow_html=True
+    )
 
 # 💖 CONTADOR (NO CAMBIADO)
 elif opcion == "💖 Contador de días":
