@@ -1,215 +1,267 @@
 import streamlit as st
 import time
-import random
-from datetime import date
 
-st.set_page_config(page_title="💖 Para ti 💖", page_icon="💖")
+st.set_page_config(page_title="💖 Para mi amor 💖", page_icon="💖")
 
-# 💖 ESTILO GENERAL
+# =========================================================
+# 🌌 ESTILO GALAXIA ROSADA
+# =========================================================
 st.markdown("""
 <style>
+
+/* =========================================================
+🌌 FONDO GALAXIA
+========================================================= */
+
 .stApp {
-    background: linear-gradient(135deg, #ffd1dc, #ffe4ec);
+    background: linear-gradient(
+        -45deg,
+        #120018,
+        #2b1055,
+        #4b1d6b,
+        #ff4da6
+    );
+
+    background-size: 400% 400%;
+    animation: galaxyBG 15s ease infinite;
     overflow: hidden;
 }
 
-p, h1, h2, h3, label {
-    color: white !important;
-    font-weight: bold;
+/* Movimiento galaxia */
+
+@keyframes galaxyBG {
+
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
 }
+
+/* =========================================================
+✨ TEXTOS
+========================================================= */
+
+h1, h2, h3, p, label, div {
+    color: #ffd6f0 !important;
+    font-weight: bold;
+    text-shadow: 0 0 10px rgba(255,255,255,0.25);
+}
+
+/* =========================================================
+💖 BOTONES
+========================================================= */
 
 .stButton>button {
-    background-color: #ff6fae;
+
+    background: rgba(255, 77, 166, 0.25);
+
     color: white;
-    border-radius: 15px;
+
+    border-radius: 20px;
+
+    border: 1px solid rgba(255,255,255,0.3);
+
+    padding: 12px 25px;
+
+    font-size: 18px;
+
+    backdrop-filter: blur(8px);
+
+    box-shadow:
+        0 0 10px rgba(255, 77, 166, 0.5),
+        0 0 20px rgba(255, 77, 166, 0.3);
+
+    transition: all 0.3s ease;
 }
 
-/* 💖 CORAZONES FLOTANTES */
-.heart {
-    position: fixed;
-    bottom: -10px;
-    font-size: 22px;
-    animation: floatUp 7s linear infinite;
-    opacity: 0.7;
+.stButton>button:hover {
+
+    transform: scale(1.08);
+
+    background: rgba(255, 77, 166, 0.45);
+
+    box-shadow:
+        0 0 20px rgba(255, 77, 166, 0.9),
+        0 0 40px rgba(255, 77, 166, 0.6);
 }
+
+/* =========================================================
+💖⭐🐢 FLOTANTES
+========================================================= */
+
+.floating {
+    position: fixed;
+
+    width: 100%;
+    height: 100%;
+
+    top: 0;
+    left: 0;
+
+    pointer-events: none;
+
+    z-index: 9999;
+}
+
+.float-item {
+
+    position: absolute;
+
+    bottom: -50px;
+
+    animation: floatUp linear infinite;
+
+    opacity: 0.8;
+}
+
+/* posiciones */
+
+.float-item:nth-child(1){
+    left: 10%;
+    font-size: 22px;
+    animation-duration: 10s;
+}
+
+.float-item:nth-child(2){
+    left: 25%;
+    font-size: 28px;
+    animation-duration: 14s;
+}
+
+.float-item:nth-child(3){
+    left: 40%;
+    font-size: 20px;
+    animation-duration: 12s;
+}
+
+.float-item:nth-child(4){
+    left: 55%;
+    font-size: 30px;
+    animation-duration: 16s;
+}
+
+.float-item:nth-child(5){
+    left: 70%;
+    font-size: 24px;
+    animation-duration: 13s;
+}
+
+.float-item:nth-child(6){
+    left: 85%;
+    font-size: 20px;
+    animation-duration: 11s;
+}
+
+/* animación */
 
 @keyframes floatUp {
-    0% {transform: translateY(0);}
-    100% {transform: translateY(-110vh);}
+
+    0% {
+        transform: translateY(0) rotate(0deg);
+        opacity: 0;
+    }
+
+    20% {
+        opacity: 1;
+    }
+
+    100% {
+        transform: translateY(-120vh) rotate(360deg);
+        opacity: 0;
+    }
 }
+
 </style>
+
+<!-- 🌌 ELEMENTOS FLOTANTES -->
+
+<div class="floating">
+
+    <div class="float-item">💖</div>
+
+    <div class="float-item">⭐</div>
+
+    <div class="float-item">🐢</div>
+
+    <div class="float-item">💖</div>
+
+    <div class="float-item">⭐</div>
+
+    <div class="float-item">🐢</div>
+
+</div>
+
 """, unsafe_allow_html=True)
 
-# 💖 CORAZONES FONDO
-hearts = ["💖","💘","💝","💗","💞","❤️"]
+st.title("💖 Hola mi querido 💖")
 
-for i in range(18):
-    st.markdown(
-        f"<div class='heart' style='left:{random.randint(0,100)}vw; animation-delay:{random.random()*5}s'>"
-        f"{random.choice(hearts)}</div>",
-        unsafe_allow_html=True
-    )
-
-# 💖 BIENVENIDA
-st.title("💖 Bienvenido querido mío 💖")
-st.markdown("### El motivo de cada latido es de usted 💖")
-
+# =========================================================
 # 🎵 MÚSICA
-st.subheader("🎵 Música 💖")
+# =========================================================
+st.write("🎵 I Wanna Be Yours - Arctic Monkeys 💖")
 st.video("https://www.youtube.com/watch?v=nyuo9-OjNNg")
 
-# 📌 MENÚ
+# =========================================================
+# 📌 OPCIONES
+# =========================================================
 opcion = st.selectbox(
-    "💖 Elige una opción 💖",
-    ["🏠 Inicio", "💌 Carta", "📖 Poemas", "💖 Contador de días", "✨ Sorpresa", "🎮 Juego"]
+    "Elige una opción:",
+    ["Carta", "Cuánto te amo", "Sorpresa ✨", "Poemas 💖"]
 )
 
-# 🏠 INICIO
-if opcion == "🏠 Inicio":
-    st.write("<3")
+# =========================================================
+# 💌 CARTA
+# =========================================================
+if opcion == "Carta":
 
-# 💌 CARTA (COMPLETA ORIGINAL)
-elif opcion == "💌 Carta":
-    st.subheader("💌 Carta de amor")
+    st.subheader("💖 Carta")
 
-    st.markdown("""
-    <div style="color:white; font-size:18px; line-height:1.8; font-weight:bold;">
-    💖 Carta<br><br>
+    st.write("""
+Si existen otras vidas, otras muertes y otros universos, espero encontrarte en cada uno de ellos.
+Porque siento que incluso el fin del tiempo sería incapaz de acabar con lo que siento por ti.
+Aun cuando mi cuerpo desaparezca y solo queden cenizas de mí, sé que incluso ellas seguirían amándote,
+porque no creo poder dejar de enamorarme de cada parte de ti, de cada lunar, de cada detalle y de esos ojitos suyos
+en los que podría perderme durante horas sin sentir que es suficiente, porque no existe universo en el que mi corazón
+no vuelva a elegirlo a usted, ni versión de mí que no termine enamorándose nuevamente de usted,
+porque sin importar cuándo, dónde o en qué vida sea, mi corazón siempre va a encontrar el camino de regreso a usted,
+y te aseguro que podría pasar una eternidad admirándolo y aun así sentir que me faltaría tiempo para seguir amándolo…
+""")
 
-    Si existen otras vidas, otras muertes y otros universos, espero encontrarte en cada uno de ellos. Porque siento que incluso el fin del tiempo sería incapaz de acabar con lo que siento por ti. Aun cuando mi cuerpo desaparezca y solo queden cenizas de mí, sé que incluso ellas seguirían amándote, porque no creo poder dejar de enamorarme de cada parte de ti, de cada lunar, de cada detalle y de esos ojitos suyos en los que podría perderme durante horas sin sentir que es suficiente, porque no existe universo en el que mi corazón no vuelva a elegirlo a usted, ni versión de mí que no termine enamorándose nuevamente de usted, porque sin importar cuándo, dónde o en qué vida sea, mi corazón siempre va a encontrar el camino de regreso a usted, y te aseguro que podría pasar una eternidad admirándolo y aun así sentir que me faltaría tiempo para seguir amándolo…
-    </div>
-    """, unsafe_allow_html=True)
+# =========================================================
+# 💖 CUÁNTO TE AMO
+# =========================================================
+if opcion == "Cuánto te amo":
 
-# 📖 POEMAS (SIN CAMBIOS)
-elif opcion == "📖 Poemas":
-
-    poemas = [
-"""Tu sonrisa es mi lugar,
-en tu mirada quiero habitar.
-
-Te voy a amar sin parar,
-y contigo quiero caminar.
-
-No te dejo de imaginar,
-lo que siento no se va.
-
-Ni el tiempo lo borrará,
-en mi alma siempre estarás.
-
-Hasta el último respirar,
-te voy a amar sin parar.""",
-
-"""Si el mundo llega a callar,
-tu voz me vuelve a guiar.
-
-Si me pierdo al caminar,
-sé que te voy a encontrar.
-
-Porque no dejo de pensar,
-que contigo quiero estar.
-
-Y aunque todo pueda cambiar,
-yo te vuelvo a amar.
-
-En cada instante al recordar,
-siempre vuelvo a tu mirar.""",
-
-"""Te pienso incluso en silencio,
-te llevo en cada pensamiento.
-
-Mi refugio en tus brazos,
-calma todos mis pasos.
-
-Eres la parte más querida,
-de esta alma perdida.
-
-Y en ti volvió mi vida,
-suave, dulce y sentida.
-
-En cualquier lugar yo te vuelvo a amar,
-sin poderte soltar te vuelvo a buscar.
-
-Porque en ti aprendí a querer,
-y en ti quiero permanecer.
-
-Y aunque el mundo pueda cambiar,
-yo te voy a recordar.""",
-
-"""Te pienso sin poder parar,
-aunque el tiempo quiera cambiar.
-
-Sin importar lo que pase,
-siempre vuelvo a amar.
-
-En cada latido estás,
-no te puedo soltar.
-
-Mi alma te vuelve a buscar,
-sin dejar de soñar.
-
-Porque en cada vida te amaré,
-sin poderte olvidar.
-
-Y aunque todo quiera acabar,
-yo te vuelvo a encontrar.
-
-Eres mi forma de amar,
-y mi razón de quedar."""
-    ]
-
-    if "p" not in st.session_state:
-        st.session_state.p = 0
+    if "run" not in st.session_state:
+        st.session_state.run = False
+        st.session_state.num = 1
+        st.session_state.final = False
 
     col1, col2 = st.columns(2)
 
-    if col1.button("⬅️"):
-        st.session_state.p = (st.session_state.p - 1) % len(poemas)
+    if col1.button("💖 Iniciar"):
+        st.session_state.run = True
+        st.session_state.final = False
 
-    if col2.button("➡️"):
-        st.session_state.p = (st.session_state.p + 1) % len(poemas)
+    if col2.button("🛑 Detener"):
+        st.session_state.run = False
+        st.session_state.final = True
 
-    st.markdown(f"<pre style='color:white; font-size:18px; white-space:pre-wrap'>{poemas[st.session_state.p]}</pre>", unsafe_allow_html=True)
+    box = st.empty()
 
-# 💖 CONTADOR
-elif opcion == "💖 Contador de días":
+    if st.session_state.run:
+        while st.session_state.run:
+            box.markdown(f"### 💖 {st.session_state.num} te amo 💖")
+            st.session_state.num += 1
+            time.sleep(0.05)
+            st.rerun()
 
-    inicio = date(2026, 4, 22)
-    hoy = date.today()
-
-    dias = (hoy - inicio).days
-
-    st.subheader("💖 Nuestro amor en el tiempo")
-    st.success(f"💖 Llevamos {dias} días juntos 💖")
-    st.write("<3")
-
-# ✨ SORPRESA
-elif opcion == "✨ Sorpresa":
-
-    st.subheader("💖 Buscando el amor de mi vida...")
-
-    barra = st.progress(0)
-
-    for i in range(101):
-        time.sleep(0.02)
-        barra.progress(i)
-
-    st.success("💖 Encontrado, usted 💖")
-    st.write("<3")
-
-# 🎮 JUEGO
-elif opcion == "🎮 Juego":
-
-    st.subheader("🎮 Encuentra el corazón secreto 💖")
-
-    if "secreto" not in st.session_state:
-        st.session_state.secreto = random.randint(1, 5)
-
-    num = st.number_input("Elige un número del 1 al 5 💖", 1, 5)
-
-    if st.button("Probar 💖"):
-        if num == st.session_state.secreto:
-            st.success("💖 Ganaste, te amo 💖")
-            st.balloons()
-            st.session_state.secreto = random.randint(1, 5)
-        else:
-            st.error("💔 Intenta otra vez")
+    if st.session_state.final:
+        st.success("Encontrado, usted 💖")
