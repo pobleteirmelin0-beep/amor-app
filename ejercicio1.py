@@ -5,165 +5,135 @@ from datetime import date
 
 st.set_page_config(page_title="💖 Para mi amor 💖", page_icon="💖")
 
-# 🌸 ESTILO ROSA PASTEL
-st.markdown("""
-<style>
-.stApp {
-    background: #ffd6e7;
-}
-h1, h2, h3, p, label {
-    color: #ffffff !important;
-    font-weight: bold;
-}
-</style>
-""", unsafe_allow_html=True)
-
-# 💖 INICIO
+# 🌟 BIENVENIDA
 st.title("💖 Bienvenido querido mío 💖")
 
-st.markdown("<h3 style='color:white;text-align:center'><3</h3>", unsafe_allow_html=True)
+mensaje = "Preparando nuestro mundo..."
+texto = st.empty()
 
-st.write("esta app fue hecha con mucho amor para usted, el motivo de cada latido")
+typed = ""
+for letra in mensaje:
+    typed += letra
+    texto.markdown(f"### {typed}")
+    time.sleep(0.04)
+
+st.write("💖 Todo listo para ti 💖")
+
+# 🎵 CANCION (YOUTUBE)
+st.subheader("🎵 Música para ti 💖")
+
+st.video("https://www.youtube.com/watch?v=nyuo9-OjNNg")
 
 # 🎀 MENÚ
 opcion = st.selectbox(
     "💖 Elige una opción 💖",
-    ["🏠 Inicio", "💌 Carta", "📖 Poemas", "💖 Contador", "✨ Sorpresa", "🎮 Juego"]
+    ["🏠 Inicio", "💌 Carta", "📖 Poemas", "💖 Contador de días", "✨ Sorpresa", "🎮 Juego secreto"]
 )
 
 # 🏠 INICIO
 if opcion == "🏠 Inicio":
-    st.write("esta app fue hecha con mucho amor para usted, el motivo de cada latido")
+    st.subheader("💖 Inicio")
+    st.write("💖 Esta app fue hecha con amor 💖")
 
-# 💌 CARTA (INTACTA)
+# 💌 CARTA
 elif opcion == "💌 Carta":
     st.subheader("💌 Carta de amor")
 
     st.markdown("""
-    <div style="color:white; font-size:18px; line-height:1.8; font-weight:bold;">
+    <div style="color:#ff2e88; font-size:18px; line-height:1.8; font-weight:bold;">
     💖 Carta<br><br>
-    Si existen otras vidas, otras muertes y otros universos, espero encontrarte en cada uno de ellos. Porque siento que incluso el fin del tiempo sería incapaz de acabar con lo que siento por ti. Aun cuando mi cuerpo desaparezca y solo queden cenizas de mí, sé que incluso ellas seguirían amándote, porque no creo poder dejar de enamorarme de cada parte de ti, de cada lunar, de cada detalle y de esos ojitos suyos en los que podría perderme durante horas sin sentir que es suficiente, porque no existe universo en el que mi corazón no vuelva a elegirlo a usted, ni versión de mí que no termine enamorándose nuevamente de usted, porque sin importar cuándo, dónde o en qué vida sea, mi corazón siempre va a encontrar el camino de regreso a usted, y te aseguro que podría pasar una eternidad admirándolo y aún así sentir que me faltaría tiempo para seguir amándolo…
+    Si existen otras vidas, otras muertes y otros universos, espero encontrarte en cada uno de ellos. Porque siento que incluso el fin del tiempo sería incapaz de acabar con lo que siento por ti. Aun cuando mi cuerpo desaparezca y solo queden cenizas de mí, sé que incluso ellas seguirían amándote, porque no creo poder dejar de enamorarme de cada parte de ti, de cada lunar, de cada detalle y de esos ojitos suyos en los que podría perderme durante horas sin sentir que es suficiente, porque no existe universo en el que mi corazón no vuelva a elegirlo a usted, ni versión de mí que no termine enamorándose nuevamente de usted, porque sin importar cuándo, dónde o en qué vida sea, mi corazón siempre va a encontrar el camino de regreso a usted, y te aseguro que podría pasar una eternidad admirándolo y aun así sentir que me faltaría tiempo para seguir amándolo…
     </div>
     """, unsafe_allow_html=True)
 
-# 📖 POEMAS (CON NAVEGACIÓN)
+# 📖 POEMAS (CORAZONES ANIMADOS)
 elif opcion == "📖 Poemas":
+    st.subheader("📖 Poemas")
 
-    poemas = [
-        """Tu sonrisa es mi lugar,
+    hearts = ["💖", "💘", "💝", "💗", "💞", "❤️"]
+
+    texto_poemas = """
+💖 Tu sonrisa es mi lugar,
 en tu mirada quiero habitar.
+
 Te voy a amar sin parar,
 y contigo quiero caminar.
-No te dejo de imaginar,
-lo que siento no se va.
-Ni el tiempo lo borrará,
-en mi alma siempre estarás.
-Hasta el último respirar,
-te voy a amar sin parar.""",
 
-        """Si el mundo llega a callar,
+💖 Si el mundo llega a callar,
 tu voz me vuelve a guiar.
+
 Si me pierdo al caminar,
 sé que te voy a encontrar.
-Porque no dejo de pensar,
-que contigo quiero estar.
-Y aunque todo pueda cambiar,
-yo te vuelvo a amar.
-En cada instante al recordar,
-siempre vuelvo a tu mirar.""",
 
-        """Te pienso incluso en silencio,
+💖 Te pienso incluso en silencio,
 te llevo en cada pensamiento.
-Mi refugio en tus brazos,
-calma todos mis pasos.
-Eres la parte más querida,
-de esta alma perdida.
-Y en ti volvió mi vida,
-suave, dulce y sentida.
-En cualquier lugar yo te vuelvo a amar,
-sin poderte soltar te vuelvo a buscar.
-Porque en ti aprendí a querer,
-y en ti quiero permanecer.
-Y aunque el mundo pueda cambiar,
-yo te voy a recordar.""",
 
-        """Te pienso sin poder parar,
+Eres mi refugio eterno,
+mi amor más sincero.
+
+💖 Te pienso sin poder parar,
 aunque el tiempo quiera cambiar.
-Sin importar lo que pase,
-siempre vuelvo a amar.
-En cada latido estás,
-no te puedo soltar.
-Mi alma te vuelve a buscar,
-sin dejar de soñar.
-Porque en cada vida te amaré,
+
+En cada vida te amaré,
 sin poderte olvidar.
-Y aunque todo quiera acabar,
-yo te vuelvo a encontrar.
-Eres mi forma de amar,
-y mi razón de quedar."""
-    ]
+"""
 
-    if "poema_i" not in st.session_state:
-        st.session_state.poema_i = 0
+    placeholder = st.empty()
 
-    def corazon():
-        st.markdown("💖💖💖")
+    for _ in range(30):
+        animated = ""
+        for line in texto_poemas.split("\n"):
+            animated += line + " " + random.choice(hearts) + "\n"
 
-    st.subheader(f"📖 Poema {st.session_state.poema_i + 1}")
+        placeholder.markdown(
+            f"<pre style='color:#ff2e88; font-size:18px'>{animated}</pre>",
+            unsafe_allow_html=True
+        )
 
-    st.write(poemas[st.session_state.poema_i])
-
-    col1, col2 = st.columns(2)
-
-    if col1.button("◀ Anterior"):
-        if st.session_state.poema_i > 0:
-            st.session_state.poema_i -= 1
-            corazon()
-
-    if col2.button("▶ Siguiente"):
-        if st.session_state.poema_i < len(poemas) - 1:
-            st.session_state.poema_i += 1
-            corazon()
+        time.sleep(0.2)
 
 # 💖 CONTADOR
-elif opcion == "💖 Contador":
+elif opcion == "💖 Contador de días":
+    st.subheader("💖 Nuestro amor en el tiempo")
 
-    st.subheader("💖 Nuestro amor")
+    inicio = date(2024, 4, 22)
+    hoy = date.today()
 
-    inicio = date(date.today().year, 4, 22)
-    dias = (date.today() - inicio).days
+    dias = (hoy - inicio).days
 
     st.success(f"💖 Llevamos {dias} días juntos 💖")
-
-    st.markdown("💖💖💖")
+    st.balloons()
 
 # ✨ SORPRESA
 elif opcion == "✨ Sorpresa":
+    st.subheader("💖 Lluvia de amor")
 
-    st.subheader("Buscando al amor de mi vida...")
+    hearts = ["💖", "💘", "💝", "💗", "💞", "❤️"]
+    placeholder = st.empty()
 
-    barra = st.progress(0)
+    for _ in range(20):
+        screen = ""
+        for _ in range(12):
+            screen += (" " * random.randint(0, 50)) + random.choice(hearts) + "\n"
 
-    for i in range(100):
-        time.sleep(0.03)
-        barra.progress(i + 1)
+        placeholder.markdown(f"<pre style='font-size:22px'>{screen}</pre>", unsafe_allow_html=True)
+        time.sleep(0.1)
 
-    st.success("encontrado, usted")
+    st.snow()
 
 # 🎮 JUEGO
-elif opcion == "🎮 Juego":
-
-    st.subheader("🎮 Adivina el corazón secreto 💖")
+elif opcion == "🎮 Juego secreto":
+    st.subheader("🎮 Encuentra el corazón secreto 💖")
 
     if "secreto" not in st.session_state:
         st.session_state.secreto = random.randint(1, 5)
 
-    num = st.number_input("Elige un número (1-5)", 1, 5)
+    num = st.number_input("Elige un número del 1 al 5 💖", 1, 5)
 
     if st.button("Probar suerte 💖"):
         if num == st.session_state.secreto:
-            st.success("lo lograste, te amo 💖")
+            st.success("💖 ¡Lo encontraste! 💖")
             st.balloons()
             st.session_state.secreto = random.randint(1, 5)
         else:
-            st.error("💔 intenta otra vez")
+            st.error("💔 No era ese... intenta otra vez")
